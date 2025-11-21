@@ -1,8 +1,10 @@
 # E-Commerce Sales Analytics Pipeline
 
 ## 📊 Project Overview
+> **Impact:** Built an analytics pipeline processing 1M+ transactions that identified $3M in revenue from top 10 customers
+and revealed November as peak sales period ($1.1M/month), enabling data-driven marketing strategies.
 
-End-to-end data analytics pipeline analyzing **1+ million e-commerce transactions** using PostgreSQL for data transformation and Power BI for interactive dashboards. This project demonstrates ETL processes, SQL optimization, star schema design, and business intelligence reporting.
+End-to-end data analytics pipeline analyzing **1+ million e-commerce transactions** using PostgreSQL for data transformation and Power BI for interactive dashboards. This project demonstrates ETL processes, SQL optimisation, star schema design, and business intelligence reporting.
 
 ---
 
@@ -19,7 +21,7 @@ An online retail company needed to:
 ## 🛠️ Tech Stack
 
 - **Database:** PostgreSQL 18.0
-- **Data Visualization:** Power BI Desktop
+- **Data Visualisation:** Power BI Desktop
 - **Languages:** SQL (DDL, DML, CTEs, Window Functions, Aggregations)
 - **Dataset:** Online Retail II (Kaggle) - 1,067,371 rows
 - **Version Control:** Git & GitHub
@@ -57,8 +59,8 @@ ecommerce-sql-analytics/
 
 **Key Features:**
 - Foreign key relationships for data integrity
-- Indexed columns for query optimization (3-5x performance improvement)
-- Normalized design following 3NF principles
+- Indexed columns for query optimisation (3-5x performance improvement)
+- Normalised design following 3NF principles
 ```
 dim_customers ──┐
                 │
@@ -92,6 +94,25 @@ dim_date ───────┘
 - **Top 20 products:** Account for $2.8M (16% of total)
 - **High-volume categories:** Home décor, gift items, party supplies
 
+- ---
+
+## 🎯 Technical Challenges Solved
+
+### Data Quality Issues
+- **Challenge:** 243,007 rows (23%) had missing customer IDs
+- **Solution:** Implemented validation rules to filter incomplete records while preserving 805K valid transactions
+- **Result:** Maintained 75.5% data retention rate with 100% data integrity
+
+### Query Performance Bottleneck
+- **Challenge:** Initial aggregation queries took 2.3 seconds on 800K+ rows
+- **Solution:** Created strategic indexes on invoice_date, customer_id, and product_id columns
+- **Result:** Reduced query execution time to 0.4s (5.75x faster)
+
+### Complex Customer Segmentation
+- **Challenge:** Needed to identify repeat customers across 489K orders
+- **Solution:** Used CTEs and window functions to calculate purchase frequency
+- **Result:** Discovered 72.39% repeat purchase rate, informing retention strategies
+
 ---
 
 ## ⚙️ Data Pipeline
@@ -115,7 +136,7 @@ dim_date ───────┘
 -- Build fact table with referential integrity
 ```
 
-### 4. Performance Optimization
+### 4. Performance Optimisation
 ```sql
 CREATE INDEX idx_fact_date ON fact_sales(invoice_date);
 CREATE INDEX idx_fact_customer ON fact_sales(customer_id);
@@ -167,7 +188,7 @@ FROM customer_orders;
 ### Trend Analysis
 ![Monthly Revenue & Product Analysis](./docs/dashboard_page1.png)
 
-**Visualizations:**
+**Visualisations:**
 - Monthly revenue line chart
 - Weekday vs Weekend comparison
 - Top 10 products bar chart
@@ -186,7 +207,7 @@ FROM customer_orders;
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/ecommerce-sql-analytics.git
+git clone https://github.com/Samson-tech-code/ecommerce-sql-analytics.git
 cd ecommerce-sql-analytics
 ```
 
@@ -230,19 +251,19 @@ Based on the analysis:
 1. **Focus on Q4 Marketing:** November shows consistent peaks - invest in holiday campaigns
 2. **VIP Customer Program:** Top 10 customers drive 17% of revenue - implement loyalty rewards
 3. **Expand International Presence:** 83% UK-heavy - opportunity in Europe (France, Germany)
-4. **Weekday Promotion Strategy:** Optimize B2B outreach during business hours
+4. **Weekday Promotion Strategy:** Optimise B2B outreach during business hours
 5. **Bestseller Inventory:** Ensure top 20 products never stock out (16% of revenue)
 
 ---
 
 ## 📈 Skills Demonstrated
 
-- ✅ **Database Design:** Star schema, normalization, indexing
-- ✅ **SQL Proficiency:** CTEs, window functions, complex joins, query optimization
+- ✅ **Database Design:** Star schema, normalisation, indexing
+- ✅ **SQL Proficiency:** CTEs, window functions, complex joins, query optimisation
 - ✅ **ETL Pipeline:** Data extraction, cleaning, transformation, loading
 - ✅ **Data Analysis:** Customer segmentation, cohort analysis, trend identification
 - ✅ **Business Intelligence:** KPI design, dashboard creation, storytelling with data
-- ✅ **Performance Tuning:** Query optimization with indexing
+- ✅ **Performance Tuning:** Query optimisation with indexing
 
 ---
 
@@ -260,7 +281,8 @@ Based on the analysis:
 
 **Samson Olanrewaju**
 - LinkedIn: [linkedin.com/in/samson-olanrewaju-40b545194](https://www.linkedin.com/in/samson-olanrewaju-40b545194/)
-- GitHub: [Samson-tech-code](https://github.com/Samson-tech-code)
+- GitHub: [@Samson-tech-code](https://github.com/Samson-tech-code)
+- Portfolio: [View this project](https://github.com/Samson-tech-code/ecommerce-sql-analytics)
 - Email: Samson1@live.ie
 
 ---
